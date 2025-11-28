@@ -1,51 +1,31 @@
-import './Notifications.css'
+import './Notifications.css';
+import closeIcon from '../assets/close-icon.png';
 import NotificationItem from './NotificationItem';
-import closeButton from "../assets/close-button.png";
 
-function Notifications({ notifications = [] }) {
-    return (
-        <div className='root-notifications'>
-            <div className="notifications">
-                <p>Here is the list of notifications</p>
-
-                <button
-                    style={{
-                        position: 'absolute',
-                        top: '1rem',
-                        right: '1rem',
-                        background: 'transparent',
-                        border: 'none',
-                        cursor: 'pointer'
-                    }}
-                    aria-label="Close"
-                    onClick={() => console.log('Close button has been clicked')}
-                >
-                    <img src={closeButton} alt="close" style={{ width: '15px', height: '15px' }} />
-                </button>
-
-                <ul>
-                    {notifications.map((notification) => {
-                        if (notification.html) {
-                            return (
-                                <NotificationItem
-                                    key={notification.id}
-                                    type={notification.type}
-                                    html={notification.html}
-                                />
-                            );
-                        }
-                        return (
-                            <NotificationItem
-                                key={notification.id}
-                                type={notification.type}
-                                value={notification.value}
-                            />
-                        );
-                    })}
-                </ul>
-            </div>
-        </div>
-    )
+export default function Notifications({ notifications = [] }) {
+  return (
+    <div className='notification-items'>
+      <p>Here is the list of notifications</p>
+      <ul>
+        {notifications.map((notification) => (
+          <NotificationItem
+            key={notification.id}
+            type={notification.type}
+            value={notification.value}
+            html={notification.html}
+          />
+        ))}
+      </ul>
+      <button
+        aria-label='Close'
+        type='button'
+        onClick={() => console.log('Close button has been clicked')}
+      >
+        <img
+          alt='close-icon'
+          src={closeIcon}
+        />
+      </button>
+    </div>
+  );
 }
-
-export default Notifications

@@ -1,16 +1,5 @@
-/* RESET CSS */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-/* GENERAL */
-#root {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+.App {
+  position: relative;
 }
